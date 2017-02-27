@@ -1,1 +1,0 @@
-Vim dotfiles and plugins
