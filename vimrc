@@ -1,8 +1,8 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-	Plug 'craigemery/vim-autotag', { 'for': 'c' }
-	Plug 'majutsushi/tagbar',      { 'for': 'c' }
+	Plug 'craigemery/vim-autotag', { 'for': ['c', 'cpp'] }
+	Plug 'majutsushi/tagbar',      { 'for': ['c', 'cpp'] }
 call plug#end()
 
 set t_Co=256
@@ -44,10 +44,9 @@ set statusline+=\ %02.3c "Column number
 set statusline+=\ %M     "Modified flag
 set statusline+=\ %r     "Read only flag
 
-augroup search_stuff
-    au InsertLeave * :setlocal hlsearch
-    au InsertEnter * :setlocal nohlsearch
-augroup END
+au InsertLeave * :setlocal hlsearch
+au InsertEnter * :setlocal nohlsearch
+au BufReadPost * if line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 let mapleader = ","
 
@@ -73,17 +72,18 @@ noremap <C-k> :tabp<CR>
 noremap <C-l> :wincmd w<CR>
 
 augroup python_stuff
-    au!
-    au FileType python inoremap // # 
-    au FileType python set expandtab
+	au!
+	au FileType python inoremap // # 
+	au FileType python set expandtab
 augroup END
 
 augroup c_stuff
-    au!
-    au FileType c inoremap // //
-    au FileType c inoremap /* /*  */<Esc>2<Left>i
-    au FileType c inoremap {<CR> {<CR>}<Esc>O
-    au FileType c set smartindent
+	au!
+	au FileType c,cpp inoremap // //
+	au FileType c,cpp inoremap /* /*  */<Esc>2<Left>i
+	au FileType c,cpp inoremap {<CR> {<CR>}<Esc>O
+	au FileType c,cpp noremap <leader>a :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+	au FileType c,cpp set smartindent
 augroup END
 
 let g:netrw_list_hide='.*\.o$,.*\.pyc$'
