@@ -1,7 +1,5 @@
-update:
-	@echo updating...
-	@git submodule init && git submodule update
-	-vim > /dev/null +PlugUpdate +qall
+default:
+	@echo Options: update, install
 
 install:
 	mkdir -p $(HOME)/.vim/plugged
@@ -11,4 +9,8 @@ install:
 	-ln -s $(CURDIR)/vimrc    $(HOME)/.vimrc
 	-vim > /dev/null +PlugUpdate +qall
 
-.PHONY: update install
+update:
+	@git submodule init && git submodule update
+	-vim > /dev/null +PlugUpdate +qall
+
+.PHONY: default install update
