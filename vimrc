@@ -1,7 +1,8 @@
 set nocompatible
 
-"call plug#begin('~/.vim/plugged')
-"call plug#end
+call plug#begin('~/.vim/plugged')
+	Plug 'majutsushi/tagbar', { 'for': 'c' }
+call plug#end()
 
 set t_Co=256
 syntax enable
