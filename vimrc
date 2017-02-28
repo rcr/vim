@@ -1,18 +1,7 @@
 set nocompatible
 
-call plug#begin('~/.vim/plugged')
-"TODO: add vim-plug as a git submodule
-"Plug 'user/repo' < for github
-"add: (for c, make sure it goes to the ftplugins)
-"Example:
-"Plug 'scrooloose/nerdtree', { 'for': 'c' }
-"tagbar
-"taglist
-"      jump-to definition for tags, other keybinds for tags
-"      turn easytags off unless filetype is c
-"      or Autotag...?
-"'
-call plug#end
+"call plug#begin('~/.vim/plugged')
+"call plug#end
 
 set t_Co=256
 syntax enable
