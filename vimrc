@@ -10,8 +10,8 @@ syntax enable
 colorscheme rcr
 filetype plugin indent on
 
-set backup
-set writebackup
+set nobackup
+set nowritebackup
 set backupdir=$HOME/.vim/tmp
 set directory=$HOME/.vim/tmp
 set viminfo+=n$HOME/.vim/viminfo
