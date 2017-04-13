@@ -87,6 +87,7 @@ augroup c_stuff
 augroup END
 
 let g:netrw_list_hide='.*\.o$,.*\.pyc$'
+let g:netrw_liststyle=1
 let g:netrw_sort_by="name"
 let g:netrw_sort_options="i"
 let g:netrw_sort_sequence="[\/]$"
