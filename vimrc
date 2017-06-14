@@ -71,6 +71,8 @@ noremap <C-j> :tabn<CR>
 noremap <C-k> :tabp<CR>
 noremap <C-l> :wincmd w<CR>
 
+au VimResized * wincmd =
+
 augroup python_stuff
 	au!
 	au FileType python inoremap // # 
